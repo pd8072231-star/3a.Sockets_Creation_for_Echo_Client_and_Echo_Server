@@ -15,20 +15,20 @@ REGISTER NUMBER:212225040071
 ```CLIENT
 import socket 
 s=socket.socket() 
+s.connect(('localhost',7000)) 
+while True: 
+    msg=input("Client > ") 
+    s.send(msg.encode()) 
+    print("Server > ",s.recv(1024).decode())
+SERVER
+import socket 
+s=socket.socket() 
 s.bind(('localhost',7000)) 
 s.listen(5) 
 c,addr=s.accept() 
 while True: 
     ClientMessage=c.recv(1024).decode() 
     c.send(ClientMessage.encode())
-SERVER
-import socket 
-s=socket.socket() 
-s.connect(('localhost',7000)) 
-while True: 
-    msg=input("Client > ") 
-    s.send(msg.encode()) 
-    print("Server > ",s.recv(1024).decode())
 ```
 
 ## OUPUT
