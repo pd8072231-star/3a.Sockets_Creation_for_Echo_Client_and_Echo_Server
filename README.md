@@ -12,7 +12,8 @@ Sockets Links.
 DEVELOPED BY P.DHARSHINI
 
 REGISTER NUMBER:212225040071
-```CLIENT
+```
+CLIENT
 import socket 
 s=socket.socket() 
 s.connect(('localhost',7000)) 
@@ -20,6 +21,8 @@ while True:
     msg=input("Client > ") 
     s.send(msg.encode()) 
     print("Server > ",s.recv(1024).decode())
+
+
 SERVER
 import socket 
 s=socket.socket() 
